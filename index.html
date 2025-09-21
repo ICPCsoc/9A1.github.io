@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9A1 - Welcome</title>
+    <!-- Load Bungee font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* blue → pink (center) → teal */
+            --brand-gradient: linear-gradient(90deg,
+                    #41359F99 0%,
+                    #FF59595A 50%,
+                    #26646476 100%);
+            --stroke-color: #fff8f0;
+            /* outline color for LOG IN text */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            background: var(--brand-gradient);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .logo {
+            font-family: 'Bungee', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            font-size: clamp(4rem, 12vw, 10rem);
+            font-weight: 400;
+            color: #fff8ce;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            margin-bottom: 3rem;
+            letter-spacing: 0.08em;
+        }
+
+        .login-button {
+            font-family: 'Bungee', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            color: transparent;
+            /* transparent fill */
+            -webkit-text-fill-color: transparent;
+            /* Safari/Chrome */
+            -webkit-text-stroke: 3px var(--stroke-color);
+            /* outlined text thicker */
+            /* Fallback outline for browsers without text-stroke */
+            text-shadow:
+                1px 0 var(--stroke-color),
+                -1px 0 var(--stroke-color),
+                0 1px var(--stroke-color),
+                0 -1px var(--stroke-color),
+                1px 1px var(--stroke-color),
+                1px -1px var(--stroke-color),
+                -1px 1px var(--stroke-color),
+                -1px -1px var(--stroke-color);
+
+            font-size: clamp(1.25rem, 3.6vw, 2rem);
+            letter-spacing: 0.08em;
+            text-decoration: none;
+            padding: 1.1rem 3.4rem;
+            border-radius: 12px;
+            position: relative;
+            display: inline-block;
+            /* gradient border using border-image */
+            border: 2px solid transparent;
+            background:
+                linear-gradient(#0000, #0000) padding-box,
+                var(--brand-gradient) border-box;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .login-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .main-container {
+            text-align: center;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="logo">9A1</div>
+        <a href="login.html" class="login-button">LOG IN</a>
+    </div>
+
+    <script>
+
+    </script>
+</body>
+
+</html>
