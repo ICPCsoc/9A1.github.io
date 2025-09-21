@@ -39,11 +39,11 @@
             place-items: stretch;
         }
 
-        /* Outer frame with purple border and rounded top-right */
+        /* Outer frame with purple border and rounded bottom corners */
         .frame {
             border: 4px solid var(--frame-purple);
-            border-radius: 0 26px 0 0;
-            /* only top-right rounded like the screenshot */
+            border-radius: 0 0 12px 12px;
+            /* bottom corners less rounded */
             width: calc(100vw - 8px);
             height: calc(100vh - 8px);
             overflow: hidden;
@@ -55,8 +55,8 @@
         /* Top gradient bar */
         header.topbar {
             background: var(--brand-gradient);
-            border-radius: 0 26px 0 0;
-            /* match frame */
+            border-radius: 0;
+            /* square corners to match frame top */
             height: clamp(70px, 12vw, 110px);
             display: flex;
             align-items: center;
