@@ -56,18 +56,18 @@
             /* transparent fill */
             -webkit-text-fill-color: transparent;
             /* Safari/Chrome */
-            -webkit-text-stroke: 3px var(--stroke-color);
-            /* outlined text thicker */
+            -webkit-text-stroke: 3px #fff8ce;
+            /* outlined text with same color as logo */
             /* Fallback outline for browsers without text-stroke */
             text-shadow:
-                1px 0 var(--stroke-color),
-                -1px 0 var(--stroke-color),
-                0 1px var(--stroke-color),
-                0 -1px var(--stroke-color),
-                1px 1px var(--stroke-color),
-                1px -1px var(--stroke-color),
-                -1px 1px var(--stroke-color),
-                -1px -1px var(--stroke-color);
+                1px 0 #fff8ce,
+                -1px 0 #fff8ce,
+                0 1px #fff8ce,
+                0 -1px #fff8ce,
+                1px 1px #fff8ce,
+                1px -1px #fff8ce,
+                -1px 1px #fff8ce,
+                -1px -1px #fff8ce;
 
             font-size: clamp(1.25rem, 3.6vw, 2rem);
             letter-spacing: 0.08em;
@@ -76,11 +76,10 @@
             border-radius: 12px;
             position: relative;
             display: inline-block;
-            /* gradient border using border-image */
-            border: 2px solid transparent;
-            background:
-                linear-gradient(#0000, #0000) padding-box,
-                var(--brand-gradient) border-box;
+            /* gradient border with transparent background */
+            border: 3px solid;
+            border-image: var(--brand-gradient) 1;
+            background: transparent;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
