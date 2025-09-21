@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    <!-- Load Monument font -->
+    <link href="https://fonts.googleapis.com/css2?family=Monument+Extended:wght@400&display=swap" rel="stylesheet">
     <style>
         :root {
             /* blue → pink (center) → teal */
@@ -91,6 +93,17 @@
             text-align: center;
             z-index: 1;
         }
+
+        .credit {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            font-family: 'Monument Extended', 'Arial', sans-serif;
+            font-size: 0.75rem;
+            color: rgba(255, 248, 206, 0.7);
+            z-index: 2;
+            letter-spacing: 0.05em;
+        }
     </style>
 </head>
 
@@ -99,6 +112,8 @@
         <div class="logo">9A1</div>
         <a href="login.html" class="login-button">LOG IN</a>
     </div>
+
+    <div class="credit">@MeCtRuC, Louis, Hana</div>
 
     <script>
 
