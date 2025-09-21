@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9A1 - Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-gradient: linear-gradient(90deg,
+                    #41359F99 0%,
+                    #FF59595A 50%,
+                    #26646476 100%);
+            --card-border: radial-gradient(circle at 0% 0%,
+                    #001052,
+                    #001689, #1300ad,
+                    #013ec6, #004fff,
+                    #296bff);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            background: var(--brand-gradient);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 1100px;
+            padding: 48px 24px;
+        }
+
+        .logo {
+            font-family: 'Bungee', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            font-size: clamp(3rem, 10vw, 7rem);
+            color: #fff8ce;
+            text-align: center;
+            margin-bottom: 24px;
+            white-space: nowrap;
+        }
+
+        /* Slimmer, taller card */
+        .card {
+            margin: 0 auto;
+            width: min(520px, 86vw);
+            min-height: 460px;
+            border-radius: 24px;
+            padding: 28px 28px 0;
+            /* border + fill as requested */
+            background:
+                linear-gradient(180deg, #f9b9fb, #8dc6dc) padding-box,
+                var(--card-border) border-box;
+            border: 10px solid transparent;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        /* New structured form layout for clean line breaks */
+        .form {
+            display: grid;
+            grid-auto-rows: min-content;
+            gap: 28px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .field-label {
+            font-family: 'Bungee', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            color: #fff8ce;
+            letter-spacing: 0.06em;
+            margin: 0 4px;
+            display: block;
+            font-size: clamp(1.1rem, 3vw, 1.6rem);
+            line-height: 1.1;
+            word-break: keep-all;
+        }
+
+        .input {
+            width: 100%;
+            padding: 34px 36px;
+            /* +10px from previous 24px 26px */
+            border-radius: 42px;
+            /* +10px from previous 32px */
+            border: none;
+            outline: none;
+            background: #ffffff;
+            color: #333;
+            font-size: 1.25rem;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.06), 0 2px 12px rgba(0, 0, 0, 0.07);
+        }
+
+        .error {
+            font-family: 'Bungee', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            color: #ffd6d6;
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            letter-spacing: 0.04em;
+            margin: -8px 6px 0;
+            min-height: 1.4em;
+            /* reserve space to avoid layout shift */
+            text-shadow: 0 1px 2px rgba(0, 0, 0, .18);
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            margin-top: auto;
+            padding-top: 12px;
+            margin-bottom: 35px;
+        }
+
+        .btn {
+            font-family: 'Bungee', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            color: #fff8f0;
+            text-decoration: none;
+            padding: 18px 56px;
+            border-radius: 12px;
+            border: 3px solid transparent;
+            background: linear-gradient(#0000, #0000) padding-box, var(--brand-gradient) border-box;
+            transition: transform .15s ease, box-shadow .2s ease;
+            display: inline-block;
+            font-size: clamp(1.1rem, 3vw, 1.6rem);
+            letter-spacing: .07em;
+            white-space: nowrap;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, .22);
+        }
+
+        @media (max-width: 520px) {
+            .card {
+                width: 92vw;
+                min-height: 460px;
+                padding: 22px 18px;
+                border-radius: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="page">
+        <h1 class="logo">9A1</h1>
+        <section class="card">
+            <form id="login-form" class="form">
+                <div class="field">
+                    <label class="field-label" for="username">USERNAME</label>
+                    <input class="input" id="username" name="username" type="text" placeholder="" required />
+                </div>
+
+                <div class="field">
+                    <label class="field-label" for="password">PASSWORD</label>
+                    <input class="input" id="password" name="password" type="password" placeholder="" required />
+                </div>
+
+                <p id="login-error" class="error" role="alert" aria-live="polite"></p>
+
+                <div class="actions">
+                    <button type="submit" class="btn"><span class="btn-text">ENTER</span></button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <script>
+        // Simple client-side validation. NOTE: Client-only auth is not secure; use backend for real apps.
+        (function () {
+            const allowed = [
+                { u: '9a1', p: '9a1' },
+                { u: 'admin', p: 'admin' },
+                { u: 'nam', p: '1234@' }
+            ];
+
+            const form = document.getElementById('login-form');
+            const usernameEl = document.getElementById('username');
+            const passwordEl = document.getElementById('password');
+            const errorEl = document.getElementById('login-error');
+
+            function showError(msg) {
+                errorEl.textContent = msg || '';
+            }
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const u = (usernameEl.value || '').trim();
+                const p = passwordEl.value || '';
+                const ok = allowed.some(creds => creds.u === u && creds.p === p);
+                if (ok) {
+                    showError('');
+                    try { localStorage.setItem('authUser', u); } catch { /* ignore */ }
+                    window.location.href = 'home.html';
+                } else {
+                    showError('Sai tên người dùng hoặc mật khẩu');
+                    passwordEl.value = '';
+                    passwordEl.focus();
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>
