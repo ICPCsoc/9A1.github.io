@@ -80,6 +80,12 @@
             line-height: 1;
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
             white-space: nowrap;
+            text-decoration: none;
+            transition: transform .15s ease;
+        }
+
+        .brand:hover {
+            transform: translateY(-1px);
         }
 
         nav.primary {
@@ -131,11 +137,11 @@
     <div class="frame">
         <header class="topbar">
             <div class="inner">
-                <div class="brand">9A1</div>
+                <a href="home.html" class="brand">9A1</a>
                 <nav class="primary" aria-label="Chính">
                     <ul class="menu">
                         <li><a href="#">BẦY THỎ</a></li>
-                        <li><a href="#">HỌC TẬP</a></li>
+                        <li><a href="learning.html">HỌC TẬP</a></li>
                         <li><a href="#">GALLERY</a></li>
                     </ul>
                 </nav>
