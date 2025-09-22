@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9A1 - Học Tập</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* blue → pink (center) → teal, consistent with other pages */
+            --brand-gradient: linear-gradient(90deg,
+                    #41359F99 0%,
+                    #FF59595A 50%,
+                    #26646476 100%);
+            --cream: #fff8ce;
+            --frame-purple: #6a2cf0;
+            /* page border color */
+            --bg-soft: linear-gradient(135deg, #f6d9dc 0%, #ecebea 48%, #e7f3f0 100%);
+            --pink-text: #ff9999;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg-soft);
+            display: grid;
+            place-items: stretch;
+        }
+
+        /* Outer frame with purple border and rounded bottom corners */
+        .frame {
+            border: 4px solid var(--frame-purple);
+            border-radius: 0 0 12px 12px;
+            /* bottom corners less rounded */
+            width: calc(100vw - 8px);
+            height: calc(100vh - 8px);
+            overflow: hidden;
+            /* keep header rounding clean */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top gradient bar */
+        header.topbar {
+            background: var(--brand-gradient);
+            border-radius: 0;
+            /* square corners to match frame top */
+            height: clamp(70px, 12vw, 110px);
+            display: flex;
+            align-items: center;
+            /* The bar hugs the frame edges; inner padding via .inner */
+        }
+
+        .topbar .inner {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 clamp(12px, 2.4vw, 24px);
+            gap: clamp(12px, 2vw, 24px);
+        }
+
+        .brand {
+            font-family: 'Bungee', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            color: var(--cream);
+            letter-spacing: 0.06em;
+            font-size: clamp(28px, 6vw, 64px);
+            line-height: 1;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+            white-space: nowrap;
+            text-decoration: none;
+            transition: transform .15s ease;
+        }
+
+        .brand:hover {
+            transform: translateY(-1px);
+        }
+
+        nav.primary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(16px, 7vw, 90px);
+            /* big spacing like the screenshot */
+        }
+
+        .menu a {
+            font-family: 'Bungee', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            color: var(--cream);
+            text-decoration: none;
+            letter-spacing: 0.06em;
+            font-size: clamp(18px, 4.8vw, 44px);
+            line-height: 1;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+            white-space: nowrap;
+            transition: transform .15s ease;
+        }
+
+        .menu a:hover {
+            transform: translateY(-1px);
+        }
+
+        /* Content area with learning section */
+        main.content {
+            flex: 1;
+            padding: clamp(20px, 4vw, 40px) clamp(30px, 6vw, 80px) clamp(40px, 8vw, 100px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: clamp(40px, 8vw, 80px);
+        }
+
+        .content-wrapper {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 32px;
+            padding: clamp(60px, 10vw, 120px) clamp(60px, 10vw, 120px) clamp(80px, 12vw, 140px);
+            width: 100%;
+            max-width: 1200px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: clamp(40px, 8vw, 80px);
+            min-height: 60vh;
+        }
+
+        .section-title {
+            font-family: 'Bungee', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            color: var(--pink-text);
+            font-size: clamp(32px, 8vw, 72px);
+            letter-spacing: 0.06em;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .buttons-container {
+            display: flex;
+            gap: clamp(30px, 6vw, 60px);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .learning-button {
+            font-family: 'Bungee', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            color: var(--pink-text);
+            text-decoration: none;
+            font-size: clamp(18px, 4vw, 28px);
+            letter-spacing: 0.06em;
+            padding: clamp(16px, 3vw, 24px) clamp(32px, 6vw, 48px);
+            border: 3px solid;
+            border-image: var(--brand-gradient) 1;
+            border-radius: 50px;
+            background: transparent;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            display: inline-block;
+        }
+
+        .learning-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        @media (max-width: 760px) {
+            .menu {
+                gap: clamp(12px, 5vw, 40px);
+            }
+
+            .buttons-container {
+                flex-direction: column;
+                align-items: center;
+                gap: clamp(20px, 4vw, 30px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="frame">
+        <header class="topbar">
+            <div class="inner">
+                <a href="home.html" class="brand">9A1</a>
+                <nav class="primary" aria-label="Chính">
+                    <ul class="menu">
+                        <li><a href="#">BẦY THỎ</a></li>
+                        <li><a href="learning.html">HỌC TẬP</a></li>
+                        <li><a href="#">GALLERY</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="content" role="main">
+            <div class="content-wrapper">
+                <h1 class="section-title">HỌC TẬP</h1>
+                <div class="buttons-container">
+                    <a href="notice.html" class="learning-button">THÔNG BÁO</a>
+                    <a href="schedule.html" class="learning-button">LỊCH HỌC</a>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
